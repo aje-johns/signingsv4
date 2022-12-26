@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Signings Allocator V2</title>
+  <style>
+    .sliderValue {
+      border: none;
+    }
+
+    .textarea textarea {
+      width: 100%;
+      height: 20vh;
+    }
+
+    button {
+      margin-top: 50px;
+      width: 100%;
+    }
+
+    .user-input {
+      background-color: rgb(25, 34, 45);
+      text-align: center;
+      width: 35%;
+      color: aliceblue;
+    }
+
+    .output-content {
+      min-width: 50vw;
+      border: 1px solid red;
+    }
+
+    .output-div {
+      width: 90%;
+      border: 1px solid rgb(109, 109, 109);
+      margin: 20px auto;
+      display: flex;
+      font-size: 30px;
+    }
+
+    .labelPadding {
+      padding-top: 50px;
+    }
+
+    .productivity {
+      padding-top: 90px;
+    }
+
+    .row {
+      text-align: center;
+      justify-content: space-evenly;
+    }
+
+    .productivity {
+      text-align: center;
+      width: 120px;
+
+    }
+
+    #tableDiv {
+      display: flex;
+      justify-content: center;
+      width: 700px;
+      margin: 10px auto;
+      height: 300px;
+      overflow: scroll;
+    }
+
+    .arrow {
+      padding-top: 100px;
+    }
+
+    .columns {
+      padding: 10px;
+    }
+
+
+
+    section {
+      padding: 30px;
+    }
+
+    .section1 {
+      display: flex;
+      background-color: rgb(220, 220, 218);
+    }
+
+    .navbar {
+      margin: 75px;
+      text-align: center;
+      background-color: black;
+      color: rgb(156, 156, 156);
+    }
+
+
+    #outputTable1 {
+      display: flex;
+      justify-content: center;
+      width: 250px;
+      height: 400px;
+      overflow: scroll;
+    }
+
+    #countOfBureauRef {
+      width: 100%;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
+</head>
+
+<body>
+  <nav class="navbar">
+    <h1>Allocator + productivity Calc</h1>
+  </nav>
+  <div class="container row section1">
+    <!-- Geting the excel sheet Input -->
+
+    <div class="user-input columns three">
+      <h4>Select Number of Allocations</h4>
+      <input type="range" min="1" max="30" value="0" id="numberOfAllocations" />
+
+      <!-- <input type="text" id="sliderValue" /> -->
+      <h1 id="sliderValue">0</h1>
+      <div class="textarea">
+        <label for="">
+          Input Value
+        </label>
+        <textarea
+          placeholder="Drag the slider above to select the number of users, after that paste the UMR here, then fill the pop up window with the user name and Then click on the 'click me' button below "
+          name="" id="inputValues"></textarea>
+      </div>
+      <button class="button button-primary" id="button">Click Me</button>
+    </div>
+
+    <div class="columns three">
+      <div class="textarea">
+        <label for="">Output Value</label>
+        <textarea name="" id="arrayOutput"></textarea>
+      </div>
+      <button id="copy">Copy Allocation</button>
+    </div>
+
+    <div id="outputTable1">
+      <table>
+        <thead>
+          <tr>
+            <td>UMR</td>
+            <td id="tableUserName">User Name</td>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </div>
+  <hr>
+
+
+  <!-- Div 2 : Bureau Ref-->
+  <div class="container sec1">
+    <section>
+      <div class="row ">
+        <div class="columns three">
+          <fieldset>
+            <label class="labelPadding" for="">Enter No.of Users</label>
+            <input placeholder="user Count" type="text" id="userCountInput">
+            <label class="labelPadding" for="">Select AHT</label>
+            <input type="radio" name="aht" value="20">20 Min
+            <input type="radio" name="aht" value="2">2 min
+          </fieldset>
+        </div>
+
+        <!-- Div 2 -->
+        <!-- info -->
+        <div class=" columns three">
+          <div class="textarea">
+            <label for="">
+              Input Value
+            </label>
+            <textarea placeholder="Enter Data Here" name="" id="inputValues2"></textarea>
+          </div>
+        </div>
+
+
+        <div class="columns six">
+          <div class="productivity">
+            <h1 id="productivityOutput">%</h1>
+            <h5 id="countOfBureauRef"></h5>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <button class="button button-primary" id="button2">Click Me</button>
+        <div class="columns twelve"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Div 3 -->
+  <div class="output-div">
+    <div id="tableDiv">
+      <table id="outputTable2">
+        <thead>
+          <tr>
+            <td class="tableHeadig">Data</td>
+            <td class="tableHeadig">Count</td>
+          </tr>
+        </thead>
+        <tbody id="tbody2"></tbody>
+      </table>
+    </div>
+  </div>
+
+</body>
+<script src="script.js"></script>
+
+</html>
